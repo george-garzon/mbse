@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import GradientCircle from "@/app/components/GradientCircle";
 import FooterGradient from "@/app/components/FooterGradient";
+import Header from "@/app/components/Header";
+import Footer from "@/app/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,9 +30,10 @@ export default function RootLayout({
       <html lang="en">
       <body className="bg-[#111114] w-full h-full text-bolt-elements-textPrimary">
         <div id="root" className="w-full min-h-dvh flex flex-col">
-              <FooterGradient />
               {/*<GradientCircle/>*/}
+            <Header />
               {children}
+            <Footer />
           </div>
       </body>
       </html>
