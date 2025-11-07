@@ -10,6 +10,8 @@ export default function Header() {
     const toggleMenu = () => setIsOpen(!isOpen)
 
     const menuItems = [
+        { label: "HOME", href: "/" },
+        { label: "CHAT", href: "/chat" },
         { label: "ABOUT", href: "https://www.arcfield.com/about" },
         { label: "MISSIONS", href: "https://www.arcfield.com/missions" },
         { label: "SOLUTIONS", href: "https://www.arcfield.com/innovations" },
