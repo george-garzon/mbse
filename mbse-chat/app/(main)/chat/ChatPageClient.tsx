@@ -42,6 +42,8 @@ export default function ChatPageClient() {
     const [messages, setMessages] = useState<ChatMessage[]>([])
     const [isLoading, setIsLoading] = useState(false)
     const [isInitialized, setIsInitialized] = useState(false)
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+
 
     const searchParams = useSearchParams()
     const incomingMessage = searchParams.get("msg")
@@ -198,14 +200,53 @@ export default function ChatPageClient() {
 
     return (
         <div className="flex flex-1 min-h-0 text-foreground">
-            <ChatSidebar
-                sessions={sessions}
-                currentSessionId={currentSessionId}
-                onSelectSession={handleSelectSession}
-                onDeleteSession={handleDeleteSession}
-                onNewChat={handleNewChat}
-            />
-            <ChatArea messages={messages} isLoading={isLoading} onSendMessage={handleSendMessage} />
+            {/* SIDEBAR */}
+            <div
+                className={`
+    fixed top-[65px] bottom-0 left-0 z-40 w-64 transform
+    bg-[#000] to-navy-950 border-r border-gold/20
+    transition-transform duration-300 ease-in-out
+    ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
+    md:relative md:top-0 md:translate-x-0 md:flex md:flex-col
+  `}
+            >
+                <ChatSidebar
+                    sessions={sessions}
+                    currentSessionId={currentSessionId}
+                    onSelectSession={(id) => {
+                        handleSelectSession(id)
+                        setIsSidebarOpen(false)
+                    }}
+                    onDeleteSession={handleDeleteSession}
+                    onNewChat={() => {
+                        handleNewChat()
+                        setIsSidebarOpen(false)
+                    }}
+                    onCloseSidebar={() => setIsSidebarOpen(false)}
+                />
+            </div>
+
+            {/* OVERLAY (mobile only) */}
+            {isSidebarOpen && (
+                <div
+                    className="
+      fixed top-[65px] bottom-0 right-0 z-30 bg-black/50 backdrop-blur-sm md:hidden
+      pl-64   /* leaves sidebar region clickable */
+    "
+                    onClick={() => setIsSidebarOpen(false)}
+                />
+            )}
+
+
+            {/* CHAT AREA */}
+            <div className="flex-1 flex flex-col">
+                <ChatArea
+                    messages={messages}
+                    isLoading={isLoading}
+                    onSendMessage={handleSendMessage}
+                    onToggleSidebar={() => setIsSidebarOpen(true)}
+                />
+            </div>
         </div>
     )
 }

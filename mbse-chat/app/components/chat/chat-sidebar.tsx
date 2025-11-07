@@ -15,6 +15,8 @@ interface ChatSidebarProps {
     onSelectSession: (sessionId: string) => void
     onDeleteSession: (sessionId: string) => void
     onNewChat: () => void
+    onCloseSidebar?: () => void
+
 }
 
 export default function ChatSidebar({
@@ -23,15 +25,25 @@ export default function ChatSidebar({
                                         onSelectSession,
                                         onDeleteSession,
                                         onNewChat,
+                                        onCloseSidebar
                                     }: ChatSidebarProps) {
     return (
-        <div className="w-64 max-w-[300px] flex flex-col flex-shrink-0 border-r border-[#2F2F2F] bg-gradient-to-b from-navy-900 to-navy-950 flex-1 min-h-0">
+        <div className="w-64 max-w-[300px] h-full flex flex-col flex-shrink-0 border-r border-[#2F2F2F] bg-gradient-to-b from-navy-900 to-navy-950 flex-1 min-h-0">
             {/* Header with Logo */}
             <div className="p-4 border-b border-[#2F2F2F]">
                 {/* Need button here to close the chat*/}
-                <div className="close-sidebar">
+                {onCloseSidebar && (
+                    <button
+                        onClick={onCloseSidebar}
+                        className="absolute top-3 right-3 p-2 rounded-lg hover:bg-[#2F2F2F] text-gray-300 md:hidden"
+                        aria-label="Close sidebar"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                )}
 
-                </div>
 
                 <button
                     onClick={onNewChat}

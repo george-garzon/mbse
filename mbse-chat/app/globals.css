@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-/*---break---*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,10 +8,10 @@
   --chat-padding: 1rem;
   --chat-min-width: 500px;
   --chat-max-width: var(--chat-min-width);
-  --bolt-elements-prompt-border: #2f2f2f;
-  --bolt-elements-bg-depth-1: rgb(16,16,16);
-  --bolt-elements-textPrimary: #fff;
-  --bolt-elements-prompt-background: #171717;
+  --prompt-border: #2f2f2f;
+  --bg-depth-1: rgb(16,16,16);
+  --textPrimary: #fff;
+  --prompt-background: #171717;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -45,7 +44,7 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-
+  --header-height: 64px;
 }
 
 @theme inline {
@@ -88,24 +87,16 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-:root {
-  --header-height: 64px;
-  --chat-padding: 1.5rem;
-}
 
-/*.bg-bolt-elements-background-depth-1 {*/
-/*  @apply bg-neutral-950 text-gray-200;*/
-/*}*/
-
-.text-bolt-elements-textPrimary {
+.textPrimary {
   @apply text-white;
 }
 
-.text-bolt-elements-textSecondary {
+.textSecondary {
   @apply text-gray-400;
 }
 
-.text-bolt-elements-textTertiary {
+.textTertiary {
   @apply text-gray-500;
 }
 
@@ -124,23 +115,23 @@
 .mix-blend-overlay {
   mix-blend-mode: overlay;
 }
-.bg-bolt-elements-prompt-background {
-  background-color: var(--bolt-elements-prompt-background);
+.prompt-background {
+  background-color: var(--prompt-background);
 }
 .border-transparent {
   border-color: transparent;
 }
-.text-bolt-elements-text-primary, .text-bolt-elements-textPrimary, .group:hover .group-hover\:text-bolt-elements-textPrimary {
-  color: var(--bolt-elements-textPrimary);
+.text-primary, .textPrimary, .group:hover .group-hover\:textPrimary {
+  color: var(--textPrimary);
 }
-.bg-bolt-elements-background-depth-1 {
-  background-color: var(--bolt-elements-bg-depth-1);
+.background-depth-1 {
+  background-color: var(--bg-depth-1);
 }
-.bg-bolt-elements-prompt-border {
-  background-color: var(--bolt-elements-prompt-border);
+.prompt-border {
+  background-color: var(--prompt-border);
 }
 
-.login-page-new__main-bg-v4 {
+.login-page {
   position: absolute;
   inset: 0;
   overflow: hidden;

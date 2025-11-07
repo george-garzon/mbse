@@ -7,7 +7,7 @@ export default function ChatSection() {
             <div className="flex overflow-auto size-full flex-col relative">
                 <div className="flex flex-col flex-grow selection-accent">
                     <div className="flex flex-col mt-[28vh] mx-[var(--chat-padding)] text-center">
-                        <h1 className="text-[44px] font-semibold tracking-tight text-bolt-elements-textPrimary">
+                        <h1 className="text-[44px] font-semibold tracking-tight textPrimary">
                             What do you want to build?
                         </h1>
                         <div className="mb-8">
@@ -17,9 +17,9 @@ export default function ChatSection() {
                             showBorder={false}
                             className="custom-class"
                         >
-                            <span className="text-bolt-elements-textSecondary dark:text-white font-medium"> Arcfield presents </span>
+                            <span className="textSecondary dark:text-white font-medium"> Arcfield presents </span>
                             Intelligent MBSE
-                            <span className="text-bolt-elements-textSecondary dark:text-white font-medium"> on Desktop </span>
+                            <span className="textSecondary dark:text-white font-medium"> on Desktop </span>
                         </GradientText>
                         </div>
                     </div>

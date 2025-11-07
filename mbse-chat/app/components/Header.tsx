@@ -10,14 +10,14 @@ export default function Header() {
     const toggleMenu = () => setIsOpen(!isOpen)
 
     const menuItems = [
-        { label: "ABOUT", href: "/about" },
-        { label: "MISSIONS", href: "/missions" },
-        { label: "SOLUTIONS", href: "/solutions" },
-        { label: "CAREERS", href: "/careers" },
+        { label: "ABOUT", href: "https://www.arcfield.com/about" },
+        { label: "MISSIONS", href: "https://www.arcfield.com/missions" },
+        { label: "SOLUTIONS", href: "https://www.arcfield.com/innovations" },
+        { label: "CAREERS", href: "https://careers.arcfield.com/careers-home" },
     ]
 
     return (
-        <header className="relative z-50 bg-bolt-elements-background-depth-1 border-b border-[#292A2E] select-none">
+        <header className="relative z-50 background-depth-1 border-b border-[#292A2E] select-none">
             <div className="flex items-center justify-between h-[var(--header-height)] px-6 sm:px-10">
                 {/* Left: Logo */}
                 <Link href="/" className="flex items-center">
@@ -31,7 +31,7 @@ export default function Header() {
                 </Link>
 
                 {/* Desktop Nav */}
-                <nav className="hidden md:flex items-center gap-10 text-bolt-elements-textSecondary text-lg tracking-wide">
+                <nav className="hidden md:flex items-center gap-10 textSecondary text-lg tracking-wide">
                     {menuItems.map((item) => (
                         <Link
                             key={item.label}
@@ -64,7 +64,7 @@ export default function Header() {
                         <Link
                             key={item.label}
                             href={item.href}
-                            className="block py-2 px-3 rounded hover:bg-[#2a2a2a] transition-colors text-bolt-elements-textPrimary"
+                            className="block py-2 px-3 rounded hover:bg-[#2a2a2a] transition-colors textPrimary"
                             onClick={() => setIsOpen(false)}
                         >
                             {item.label}

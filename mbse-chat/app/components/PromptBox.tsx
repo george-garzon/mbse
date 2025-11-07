@@ -28,29 +28,30 @@ export default function PromptBox() {
         <div className="relative px-[var(--chat-padding)] w-full max-w-chat mx-auto z-prompt">
             <div className="relative shadow-xs rounded-[0.375rem] p-[1px] overflow-clip">
                 {/* Border background */}
-                <div className="absolute inset-0 bg-bolt-elements-prompt-border -z-1" />
+                <div className="absolute inset-0 prompt-border -z-1" />
                 <div className="PromptContainer_border absolute top-0 left-0 right-0 h-[136px] rounded-[calc(0.375rem-1px)] -z-1" />
                 <div className="absolute top-0 left-[10px] h-px w-[100px] bg-gradient-to-r from-accent-300/0 via-accent-300 to-accent-300/0 mix-blend-overlay" />
 
                 {/* Main text area */}
-                <div className="bg-bolt-elements-prompt-background rounded-[calc(0.375rem-1px)]">
+                <div className="prompt-background rounded-[calc(0.375rem-1px)]">
                     <div className="relative select-none">
                         <textarea
                             className="w-full px-4 pt-4 pr-16 pb-4 focus:outline-none resize-none text-white placeholder-muted-foreground bg-transparent text-sm font-medium"
                             style={{ minHeight: "76px", maxHeight: "200px" }}
                             translate="no"
+                            placeholder="Generate diagrams with ease!"
                             value={inputValue}
                             onChange={(e) => setInputValue(e.target.value)}
                         />
                         {/* Animated placeholder overlay */}
                         <div className="absolute top-4 left-4 right-16 pointer-events-none text-muted-foreground text-sm font-medium">
-                            <TypingText
-                                templates={templates}
-                                typingSpeed={60}
-                                deletingSpeed={30}
-                                pauseDuration={2500}
-                                isVisible={showAnimation}
-                            />
+                            {/*<TypingText*/}
+                            {/*    templates={templates}*/}
+                            {/*    typingSpeed={60}*/}
+                            {/*    deletingSpeed={30}*/}
+                            {/*    pauseDuration={2500}*/}
+                            {/*    isVisible={showAnimation}*/}
+                            {/*/>*/}
                         </div>
                     </div>
 

@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
       <html lang="en">
-      <body className="bg-[#111114] w-full h-full text-bolt-elements-textPrimary">
+      <body className="bg-[#111114] w-full h-full textPrimary">
         <div id="root" className="w-full min-h-dvh flex flex-col">
               {/*<GradientCircle/>*/}
             <Header />
