@@ -230,7 +230,7 @@ export default function ChatPageClient() {
             {isSidebarOpen && (
                 <div
                     className="
-      fixed top-[65px] bottom-0 right-0 z-51 bg-black/50 backdrop-blur-sm md:hidden
+      fixed top-[65px] bottom-0 right-0 z-50 bg-black/50 backdrop-blur-sm md:hidden
       pl-64   /* leaves sidebar region clickable */
     "
                     onClick={() => setIsSidebarOpen(false)}
