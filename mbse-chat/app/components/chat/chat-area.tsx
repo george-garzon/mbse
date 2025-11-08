@@ -104,12 +104,6 @@ export default function ChatArea({ messages, isLoading, onSendMessage , onToggle
             {/* Input Area */}
             <div className="relative z-20 border-t border-gold/20 p-8 bg-gradient-to-t from-navy-950 to-transparent">
                 <form onSubmit={handleSubmit} className="flex gap-4 max-w-3xl mx-auto">
-                    <button
-                        type="button"
-                        className="rounded-full w-10 h-10 flex items-center justify-center bg-gold/10 hover:bg-gold/20 text-gold transition-colors flex-shrink-0"
-                    >
-                        <Plus className="w-5 h-5"/>
-                    </button>
 
                     <input
                         ref={inputRef}

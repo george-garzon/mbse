@@ -7,9 +7,9 @@ export default function Home() {
   return (
       <>
       <FooterGradient />
-      <div className="flex flex-col h-full w-full min-h-dvh">
-        <ChatSection />
-      </div>
+          <div className="flex flex-col h-full w-full min-h-[calc(100vh-65px)]">
+              <ChatSection/>
+          </div>
       </>
   )
 }

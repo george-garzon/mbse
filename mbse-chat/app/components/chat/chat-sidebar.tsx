@@ -30,12 +30,12 @@ export default function ChatSidebar({
     return (
         <div className="w-64 max-w-[300px] h-full flex flex-col flex-shrink-0 border-r border-[#2F2F2F] bg-gradient-to-b from-navy-900 to-navy-950 flex-1 min-h-0">
             {/* Header with Logo */}
-            <div className="p-4 border-b border-[#2F2F2F]">
+            <div className="p-4 border-b border-[#2F2F2F] flex flex-row gap-4 w-full">
                 {/* Need button here to close the chat*/}
                 {onCloseSidebar && (
                     <button
                         onClick={onCloseSidebar}
-                        className="absolute top-3 right-3 p-2 rounded-lg hover:bg-[#2F2F2F] text-gray-300 md:hidden"
+                        className=" p-2 rounded-lg hover:bg-[#2F2F2F] text-gray-300 md:hidden"
                         aria-label="Close sidebar"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

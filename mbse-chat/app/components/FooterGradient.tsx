@@ -17,7 +17,7 @@ export default function FooterGradient() {
                     priority
                 />
             </div>
-            <div className="absolute inset-0 z-[1] blur-[px] pointer-events-none">
+            <div className="absolute inset-0 z-[1] blur-[px] pointer-events-none hidden md:block">
                 <Image
                     src="/trail3.png"
                     alt="rocket trail"
@@ -27,6 +27,7 @@ export default function FooterGradient() {
                     priority
                 />
             </div>
+
             <div className="absolute left-0 right-0 h-full pointer-events-none z-[1]">
                 <Image
                     src="/stars.png"
