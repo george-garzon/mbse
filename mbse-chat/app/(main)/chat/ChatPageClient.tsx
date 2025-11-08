@@ -203,8 +203,8 @@ export default function ChatPageClient() {
             {/* SIDEBAR */}
             <div
                 className={`
-    fixed top-[65px] bottom-0 left-0 z-40 w-64 transform
-    bg-[#000] to-navy-950 border-r border-gold/20
+    fixed top-[65px] bottom-0 left-0 z-51 w-64 transform
+    bg-[#111114] border-r
     transition-transform duration-300 ease-in-out
     ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
     md:relative md:top-0 md:translate-x-0 md:flex md:flex-col
@@ -230,7 +230,7 @@ export default function ChatPageClient() {
             {isSidebarOpen && (
                 <div
                     className="
-      fixed top-[65px] bottom-0 right-0 z-30 bg-black/50 backdrop-blur-sm md:hidden
+      fixed top-[65px] bottom-0 right-0 z-51 bg-black/50 backdrop-blur-sm md:hidden
       pl-64   /* leaves sidebar region clickable */
     "
                     onClick={() => setIsSidebarOpen(false)}

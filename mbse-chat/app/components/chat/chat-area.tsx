@@ -54,15 +54,11 @@ export default function ChatArea({ messages, isLoading, onSendMessage , onToggle
                     className="p-2 rounded-lg bg-[#171717] hover:bg-[#2F2F2F] border border-[#2F2F2F] text-gray-300 hover:text-white transition-colors"
                     aria-label="Open sidebar"
                 >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-5 h-5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                    >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+
+                    <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" className="w-5 h-5"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M18 3a3 3 0 0 1 2.995 2.824l.005 .176v12a3 3 0 0 1 -2.824 2.995l-.176 .005h-12a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-12a3 3 0 0 1 2.824 -2.995l.176 -.005h12zm0 2h-9v14h9a1 1 0 0 0 .993 -.883l.007 -.117v-12a1 1 0 0 0 -.883 -.993l-.117 -.007zm-4.387 4.21l.094 .083l2 2a1 1 0 0 1 .083 1.32l-.083 .094l-2 2a1 1 0 0 1 -1.497 -1.32l.083 -.094l1.292 -1.293l-1.292 -1.293a1 1 0 0 1 -.083 -1.32l.083 -.094a1 1 0 0 1 1.32 -.083z"></path>
                     </svg>
                 </button>
             </div>
@@ -109,9 +105,9 @@ export default function ChatArea({ messages, isLoading, onSendMessage , onToggle
                         ref={inputRef}
                         value={inputValue}
                         onChange={(e) => setInputValue(e.target.value)}
-                        placeholder="I would like to"
+                        placeholder="Ask anything about Arcfield..."
                         disabled={isLoading}
-                        className="flex-1 bg-[#171717] border border-[#2F2F2F] text-white placeholder-gray-500 rounded-lg px-6 py-3 focus:border-blue-500 focus:outline-none focus:ring-0"
+                        className="flex-1 bg-[#171717] border border-[#2F2F2F] text-white placeholder-[#737373] rounded-lg px-6 py-3 focus:border-[#00597C] focus:outline-none focus:ring-0"
                     />
 
                     <button
@@ -134,6 +130,7 @@ export default function ChatArea({ messages, isLoading, onSendMessage , onToggle
                     </button>
 
                 </form>
+                <p className="text-[#737373] text-sm mt-4">Powered by AI. Check outputs for accuracy and applicability.</p>
             </div>
         </div>
     )

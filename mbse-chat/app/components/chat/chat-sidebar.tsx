@@ -1,6 +1,7 @@
 "use client"
 
 import { Plus, MessageCircle, Trash2 } from "lucide-react"
+import { Avatar, AvatarFallback, AvatarImage } from "@/app/components/ui/avatar"
 
 interface ChatSession {
     id: string
@@ -31,20 +32,6 @@ export default function ChatSidebar({
         <div className="w-64 max-w-[300px] h-full flex flex-col flex-shrink-0 border-r border-[#2F2F2F] bg-gradient-to-b from-navy-900 to-navy-950 flex-1 min-h-0">
             {/* Header with Logo */}
             <div className="p-4 border-b border-[#2F2F2F] flex flex-row gap-4 w-full">
-                {/* Need button here to close the chat*/}
-                {onCloseSidebar && (
-                    <button
-                        onClick={onCloseSidebar}
-                        className=" p-2 rounded-lg hover:bg-[#2F2F2F] text-gray-300 md:hidden"
-                        aria-label="Close sidebar"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                )}
-
-
                 <button
                     onClick={onNewChat}
                     className="w-full px-6 py-2 bg-[#00597C] hover:[#00597C] text-white rounded-full flex items-center justify-center gap-2 font-medium"
@@ -52,6 +39,20 @@ export default function ChatSidebar({
                     <Plus className="w-4 h-4"/>
                     New Chat
                 </button>
+                {/* Need button here to close the chat*/}
+                {onCloseSidebar && (
+                    <button
+                        onClick={onCloseSidebar}
+                        className=" p-2 rounded-lg hover:bg-[#2F2F2F] text-gray-300 md:hidden"
+                        aria-label="Close sidebar"
+                    >
+                        <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24"
+                             className="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M18 3a3 3 0 0 1 2.995 2.824l.005 .176v12a3 3 0 0 1 -2.824 2.995l-.176 .005h-12a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-12a3 3 0 0 1 2.824 -2.995l.176 -.005h12zm0 2h-9v14h9a1 1 0 0 0 .993 -.883l.007 -.117v-12a1 1 0 0 0 -.883 -.993l-.117 -.007zm-2.293 4.293a1 1 0 0 1 .083 1.32l-.083 .094l-1.292 1.293l1.292 1.293a1 1 0 0 1 .083 1.32l-.083 .094a1 1 0 0 1 -1.32 .083l-.094 -.083l-2 -2a1 1 0 0 1 -.083 -1.32l.083 -.094l2 -2a1 1 0 0 1 1.414 0z"></path>
+                        </svg>
+                    </button>
+                )}
             </div>
 
             {/* Chat History */}
@@ -93,7 +94,23 @@ export default function ChatSidebar({
             </div>
 
             {/* Footer */}
-            <div className="p-4 border-t border-[#2F2F2F] text-xs text-gray-500 text-center">Arcfield AI</div>
-        </div>
+            <div
+                className="p-4 border-t border-[#2F2F2F] text-xs text-gray-500 text-center flex flex-col items-center gap-2">
+                {/* Avatar + Name */}
+                <div className="flex items-center justify-center gap-2">
+                    <Avatar className="h-10 w-10">
+                        <AvatarImage src="/GGHeadshot.jpg" alt="Arcfield AI"
+                                     className="object-cover w-full h-full"
+                        />
+                        <AvatarFallback>GG</AvatarFallback>
+                    </Avatar>
+                    <span className="text-gray-400 font-medium">Arcfield AI</span>
+                </div>
+
+                {/* Text */}
+                <span className="text-[11px] text-gray-500 leading-tight">
+        Chats are saved up to 30 days.
+      </span>
+            </div>        </div>
     )
 }

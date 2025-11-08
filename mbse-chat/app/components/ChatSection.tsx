@@ -26,7 +26,7 @@ export default function ChatSection() {
                         </div>
 
                         {/* Mobile fallback text */}
-                        <p className="mb-8 block md:hidden text-muted text-sm font-medium">
+                        <p className="mb-8 block md:hidden text-[#737373] text-sm font-medium">
                             Arcfield presents Intelligent MBSE
                         </p>
                     </div>
