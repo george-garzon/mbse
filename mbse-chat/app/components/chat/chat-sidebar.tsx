@@ -2,6 +2,8 @@
 
 import { Plus, MessageCircle, Trash2 } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/app/components/ui/avatar"
+import { Button } from "@/stories/Button"
+import React from "react";
 
 interface ChatSession {
     id: string
@@ -32,13 +34,16 @@ export default function ChatSidebar({
         <div className="w-64 max-w-[300px] h-full flex flex-col flex-shrink-0 border-r border-[#2F2F2F] bg-gradient-to-b from-navy-900 to-navy-950 flex-1 min-h-0">
             {/* Header with Logo */}
             <div className="p-4 border-b border-[#2F2F2F] flex flex-row gap-4 w-full">
-                <button
+                <Button
+                    label="New Chat"
+                    iconRight={false}
+                    icon={
+                        <Plus className="w-4 h-4"/>
+                    }
                     onClick={onNewChat}
-                    className="w-full px-6 py-2 bg-[#00597C] hover:[#00597C] text-white rounded-full flex items-center justify-center gap-2 font-medium"
-                >
-                    <Plus className="w-4 h-4"/>
-                    New Chat
-                </button>
+                    className="w-full"
+                />
+
                 {/* Need button here to close the chat*/}
                 {onCloseSidebar && (
                     <button
@@ -64,7 +69,7 @@ export default function ChatSidebar({
                         <div
                             key={session.id}
                             onClick={() => onSelectSession(session.id)}
-                            className={`p-3 rounded-lg cursor-pointer group transition-all ${
+                            className={`p-3 rounded-[calc(0.375rem-1px)] cursor-pointer group transition-all ${
                                 currentSessionId === session.id
                                     ? "bg-[#171717] border border-[#303030] text-white"
                                     : "hover:bg-[#303030] text-gray-300 hover:text-white"

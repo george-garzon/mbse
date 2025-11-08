@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from "react"
 import { Send, Plus } from "lucide-react"
 import TypingIndicator from "./typing-indicator"
+import { Button } from "@/stories/Button"
 
 interface ChatMessage {
     id: string
@@ -107,27 +108,26 @@ export default function ChatArea({ messages, isLoading, onSendMessage , onToggle
                         onChange={(e) => setInputValue(e.target.value)}
                         placeholder="Ask anything about Arcfield..."
                         disabled={isLoading}
-                        className="flex-1 bg-[#171717] border border-[#2F2F2F] text-white placeholder-[#737373] rounded-lg px-6 py-3 focus:border-[#00597C] focus:outline-none focus:ring-0"
+                        className="flex-1 bg-[#171717] border border-[#2F2F2F] text-white placeholder-[#737373] rounded-[calc(0.375rem-1px)] px-6 py-3 focus:border-[#00597C] focus:outline-none focus:ring-0"
                     />
-
-                    <button
+                    <Button
                         type="submit"
-                        disabled={isLoading || !inputValue.trim()}
-                        className={`bg-[#00597C] hover:bg-[#00597C] disabled:bg-gray-200 disabled:text-black text-white rounded-lg px-8 font-medium flex items-center gap-2 transition-colors duration-200`}
-                    >
-                        Send
-                        <svg
-                            className={`w-4 h-4 transition-all duration-200 ease-in-out animate-in fade-in slide-in-from-right-2 hidden sm:block ${
-                                isLoading || !inputValue.trim() ? "text-black" : "text-white"
-                            }`}
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                        >
-                            <path
-                                d="m4.497 20.835 16.51-7.363c1.324-.59 1.324-2.354 0-2.944L4.497 3.164c-1.495-.667-3.047.814-2.306 2.202l3.152 5.904c.245.459.245 1 0 1.458l-3.152 5.904c-.74 1.388.81 2.87 2.306 2.202"/>
-                        </svg>
-                    </button>
+                        id="send-btn"
+                        label="Send"
+                        // isLoading={isLoading}
+                        disabled={!inputValue.trim()}
+                        iconRight
+                        icon={
+                            <svg
+                                className="w-4 h-4"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                            >
+                                <path d="m4.497 20.835 16.51-7.363c1.324-.59 1.324-2.354 0-2.944L4.497 3.164c-1.495-.667-3.047.814-2.306 2.202l3.152 5.904c.245.459.245 1 0 1.458l-3.152 5.904c-.74 1.388.81 2.87 2.306 2.202z" />
+                            </svg>
+                        }
+                    />
 
                 </form>
                 <p className="text-[#737373] text-sm mt-4">Powered by AI. Check outputs for accuracy and applicability.</p>

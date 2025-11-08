@@ -3,6 +3,8 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { TypingText } from "@/app/components/typing-text"
+import { Button } from "@/stories/Button"
+
 
 export default function PromptBox() {
     const [inputValue, setInputValue] = useState("")
@@ -63,26 +65,31 @@ export default function PromptBox() {
                                 aria-label="Create new"
                                 onClick={() => setInputValue("")}
                             >
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <line x1="12" y1="5" x2="12" y2="19" />
-                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                     strokeWidth="2">
+                                    <line x1="12" y1="5" x2="12" y2="19"/>
+                                    <line x1="5" y1="12" x2="19" y2="12"/>
                                 </svg>
                             </button>
-
-                            <button
-                                onClick={handleSend}
-                                className="flex items-center gap-2 px-6 py-2 bg-[#00597C] hover:bg-[#0073A0] text-white rounded-full font-semibold transition-colors shadow-lg hover:shadow-xl"
-                            >
-                                Send
+                            <Button
+                                id="send-btn"
+                                label="Send"
+                                variant="primary"
+                                disabled={!inputValue.trim()}
+                                iconRight={true}
+                                icon={
                                 <svg
                                     className="w-4 h-4 text-white transition-all duration-200 ease-in-out animate-in fade-in slide-in-from-right-2 hidden sm:block"
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 24 24"
                                     fill="currentColor"
                                 >
-                                    <path d="m4.497 20.835l16.51-7.363c1.324-.59 1.324-2.354 0-2.944L4.497 3.164c-1.495-.667-3.047.814-2.306 2.202l3.152 5.904c.245.459.245 1 0 1.458l-3.152 5.904c-.74 1.388.81 2.87 2.306 2.202"></path>
+                                    <path
+                                        d="m4.497 20.835l16.51-7.363c1.324-.59 1.324-2.354 0-2.944L4.497 3.164c-1.495-.667-3.047.814-2.306 2.202l3.152 5.904c.245.459.245 1 0 1.458l-3.152 5.904c-.74 1.388.81 2.87 2.306 2.202z"/>
                                 </svg>
-                            </button>
+                                }
+                                onClick={handleSend}
+                            />
                         </div>
                     </div>
                 </div>
