@@ -25,7 +25,7 @@ export const metadata = {
         siteName: "Arcfield AI Chat",
         images: [
             {
-                url: "/site_image.png",
+                url: "https://mbse.garzn.com/site_image.png",
                 width: 1200,
                 height: 630,
                 alt: "Arcfield AI",
@@ -38,7 +38,7 @@ export const metadata = {
         card: "summary_large_image",
         title: "About Arcfield STC",
         description: "Ask AI about Arcfield MBSE",
-        images: ["/site_image.png"],
+        images: ["https://mbse.garzn.com/site_image.png"],
     },
 }
 
