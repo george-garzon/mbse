@@ -1,36 +1,33 @@
-version: "3.9"
+version: '3.4'
 
 services:
-  nextjs:
-    container_name: mbse-next
+  site:
     build:
       context: .
-      dockerfile: Dockerfile
-    working_dir: /app/mbse-chat
-    command: npm run start
-    environment:
-      NODE_ENV: production
-      HOST: 0.0.0.0
-      PORT: 3000
+      target: test-target
+      args:
+        npm_install_command: install
+    volumes:
+      # This bind mount allows changes on the host file system to affect the container.
+      # Saving a code file can cause an incremental build, a hot reload in the browser,
+      # and a reconnection of the debugger.
+      # The mount is in delegated mode:
+      # Changes on the host, like saving a code file, immediately affect the container.
+      # Changes within the container, like build output, make their way back to the host,
+      # but are not strictly synchronized.
+      - .:/usr/src/app:delegated
     ports:
-      - "3000:3000"
-    restart: always
-
+      - 3000:3000
+      - 9229:9229
+    command: npm run dev
   storybook:
-    container_name: mbse-storybook
     build:
       context: .
-      dockerfile: Dockerfile
-    working_dir: /app/mbse-chat
-    command: npm run storybook -- --no-open --port 6006 --host 0.0.0.0
-    environment:
-      NODE_ENV: development
-      HOST: 0.0.0.0
-      PORT: 6006
+      target: test-target
+      args:
+        npm_install_command: install
+    volumes:
+      - .:/usr/src/app:delegated
     ports:
-      - "6006:6006"
-    restart: always
-
-networks:
-  default:
-    name: mbse-network
+      - 6006:6006
+    command: npm run storybook
