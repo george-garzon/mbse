@@ -22,7 +22,7 @@ services:
       - .:/usr/src/app:delegated
     ports:
       - 6006:6006
-    command: npm run storybook -- --no-open --host 0.0.0.0
+    command: npm run build-storybook -- --no-open --host 0.0.0.0
     environment:
       HOST: 0.0.0.0
       PORT: 6006
